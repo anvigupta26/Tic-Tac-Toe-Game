@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Simple Calculator</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.js"></script>
+<script>
+
+
+$(function () {
+ 
+  // Add containers to the DOM
+  var $calculator = $('<div/>', {id: 'calculator'}).appendTo('body');
+  var $input = $('<input/>', {id: 'input'}).appendTo($calculator);
+  var $buttons = $('<div/>', {id: 'buttons'}).appendTo($calculator);
+ 
+  // Add buttons to the DOM
+  $.each('1234567890.=+-*/?C'.split(''), function () {
+    var $button = $('<button/>', {text: this.toString(), click: function () {
+      // Handle button clicks
+      switch ($(this).text()) {
+        // '=' will fetch the current expression string, evaluate it,
+        // and write the result back into the input/output field.
+        // That's where the actual calculation happens.
+        case '=': try {$input.val(eval($input.val()));} catch (e) {$input.val('ERROR');}
+        // 'C' will clear the input/output field
+        break; case 'C': return $input.val('');
+        // 'CE' will delete the last character from the input/output field
+        break; case '?': return $input.val($input.val().replace(/.$/, ''));
+        // All other buttons will add a character to the input/output field
+        break; default: $input.val($input.val() + $(this).text());
+      }
+    }}).appendTo($buttons);
+  });
+});
+
+</script>
+
+<style type="text/css">
+  #calculator {border: 1px solid; width: 130px;}
+  #input {border: 1px solid; height: 20px; width: 114px; margin: 5px; padding: 2px; text-align: right;}
+  #buttons {margin: 5px;}
+  button {width: 30px; height: 30px;}
+</style>
+
+</head>
+<body></body>
+</html>
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Simple Calculator</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.js"></script>
+
+<script>
+
+ 
+
+ 
+
+$(function () {
+
+  
+
+  // Add containers to the DOM
+
+  var $calculator = $('<div/>', {id: 'calculator'}).appendTo('body');
+
+  var $input = $('<input/>', {id: 'input'}).appendTo($calculator);
+
+  var $buttons = $('<div/>', {id: 'buttons'}).appendTo($calculator);
+
+  
+
+  // Add buttons to the DOM
+
+  $.each('1234567890.=+-*/?C'.split(''), function () {
+
+    var $button = $('<button/>', {text: this.toString(), click: function () {
+
+      // Handle button clicks
+
+      switch ($(this).text()) {
+
+        // '=' will fetch the current expression string, evaluate it,
+
+        // and write the result back into the input/output field.
+
+        // That's where the actual calculation happens. 
+
+        case '=': try {$input.val(eval($input.val()));} catch (e) {$input.val('ERROR');}
+
+        // 'C' will clear the input/output field
+
+        break; case 'C': return $input.val('');
+
+        // 'CE' will delete the last character from the input/output field
+
+        break; case '?': return $input.val($input.val().replace(/.$/, ''));
+
+        // All other buttons will add a character to the input/output field
+
+        break; default: $input.val($input.val() + $(this).text()); 
+
+      }
+
+    }}).appendTo($buttons);
+
+  });
+
+});
+
+ 
+
+</script>
+
+ 
+
+<style type="text/css">
+
+  #calculator {border: 1px solid; width: 130px;}
+
+  #input {border: 1px solid; height: 20px; width: 114px; margin: 5px; padding: 2px; text-align: right;}
+
+  #buttons {margin: 5px;}
+
+  button {width: 30px; height: 30px;}
+
+</style>
+
+ 
+
+</head>
+
+<body></body>
+
+</html>
+
